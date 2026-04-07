@@ -185,12 +185,13 @@ p{
 .mini-card,
 .principles-card,
 .findings-table-card,
-.theme-card,
 .rec-card,
 .chart-card,
 .impact-card,
 .closing-statement,
-.chosen-exhibits{
+.chosen-exhibits,
+.insight-accordion,
+.insight-summary{
   background:rgba(255,255,255,.88);
   border:1px solid var(--line);
   border-radius:var(--radius);
@@ -204,9 +205,9 @@ p{
 }
 
 .mini-card:hover,
-.theme-card:hover,
 .rec-card:hover,
-.impact-card:hover{
+.impact-card:hover,
+.insight-accordion:hover{
   transform:translateY(-3px);
   box-shadow:0 18px 34px rgba(44,72,126,.13);
 }
@@ -237,7 +238,8 @@ p{
 }
 
 .primary-btn,
-.tab-btn{
+.tab-btn,
+.insight-btn{
   border:none;
   cursor:pointer;
   font:inherit;
@@ -245,7 +247,8 @@ p{
 }
 
 .primary-btn:hover,
-.tab-btn:hover{
+.tab-btn:hover,
+.insight-btn:hover{
   transform:translateY(-1px);
 }
 
@@ -309,7 +312,7 @@ p{
 
 .findings-layout{
   display:grid;
-  grid-template-columns:1.12fr .88fr;
+  grid-template-columns:1.08fr .92fr;
   gap:24px;
   align-items:start;
 }
@@ -378,14 +381,83 @@ p{
 .orange{background:#e58a15}
 .red{background:#e22a26}
 
-.theme-cards{
+.insights-panel{
   display:grid;
   gap:16px;
 }
 
-.theme-card{
-  padding:22px;
-  transition:transform .22s ease, box-shadow .22s ease;
+.insight-accordion{
+  overflow:hidden;
+  transition:box-shadow .22s ease, transform .22s ease;
+}
+
+.insight-btn{
+  width:100%;
+  background:transparent;
+  text-align:left;
+  padding:22px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:var(--ink);
+}
+
+.insight-btn span{
+  display:block;
+}
+
+.insight-btn strong{
+  display:block;
+  font-size:1.3rem;
+  letter-spacing:-.03em;
+  color:var(--blue-deep);
+  margin-bottom:6px;
+}
+
+.insight-btn small{
+  display:block;
+  color:var(--muted);
+  font-size:.92rem;
+  font-weight:700;
+}
+
+.insight-plus{
+  font-size:1.8rem;
+  color:var(--blue-dark);
+  transition:transform .2s ease;
+  line-height:1;
+}
+
+.insight-body{
+  display:none;
+  padding:0 24px 22px;
+}
+
+.insight-accordion.active .insight-body{
+  display:block;
+  animation:fadeUp .25s ease both;
+}
+
+.insight-accordion.active .insight-plus{
+  transform:rotate(45deg);
+}
+
+.insight-body ul{
+  margin:0;
+  padding-left:22px;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:1.05rem;
+}
+
+.insight-summary{
+  padding:22px 24px;
+}
+
+.insight-summary p:last-child{
+  color:var(--muted);
+  line-height:1.72;
+  font-size:1.08rem;
 }
 
 .recommendation-tabs{
