@@ -116,3 +116,12 @@ tabButtons.forEach(button => {
 });
 
 showSlide(0);
+
+const insightAccordions = document.querySelectorAll('.insight-accordion');
+
+insightAccordions.forEach(item => {
+  const button = item.querySelector('.insight-btn');
+  button.addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
+});
