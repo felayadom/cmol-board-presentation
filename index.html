@@ -1,1 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CMOL Board Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <button class="nav-btn prev" id="prevBtn" aria-label="Previous slide">←</button>
+  <button class="nav-btn next" id="nextBtn" aria-label="Next slide">→</button>
 
+  <div class="slide-indicator">
+    <span id="currentSlide">1</span>
+    <span class="slash">/</span>
+    <span id="totalSlides">8</span>
+  </div>
+
+  <main class="deck" id="deck">
+    <section class="slide active" id="slide-1">
+      <div class="slide-inner intro-slide">
+        <p class="eyebrow">Children’s Museum of Oak Lawn</p>
+        <h1>Universal Design in Exhibits</h1>
+        <p class="intro-text">
+          Feba Elayadom<br>
+          University of Illinois Chicago<br>
+          Department of Occupational Therapy
+        </p>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-2">
+      <div class="slide-inner two-column">
+        <div>
+          <p class="eyebrow">Universal Design</p>
+          <h2>Designing spaces so they can be used by as many people as possible without needing special adaptation.</h2>
+          <p class="body-text">
+            In a museum, this means shaping exhibits so more children can enter, understand, and engage in play in meaningful ways.
+          </p>
+          <div class="example-cards">
+            <div class="mini-card">
+              <h3>General example</h3>
+              <p>Curb cuts and automatic doors support a wider range of users without requiring a separate entrance.</p>
+            </div>
+            <div class="mini-card">
+              <h3>Museum example</h3>
+              <p>Exhibits with clearer entry points, multiple ways to engage, and better access can support more independent play.</p>
+            </div>
+          </div>
+        </div>
+        <div class="principles-panel">
+          <div class="principles-card">
+            <p class="eyebrow small">Framework</p>
+            <h3>Seven Principles</h3>
+            <p>Click below to view the seven principles that guided the review tool.</p>
+            <button class="primary-btn" data-open-modal="principlesModal">View Principles</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-3">
+      <div class="slide-inner center-slide">
+        <p class="eyebrow">Takeaway</p>
+        <h2 class="takeaway">
+          Understand how design impacts participation and how the museum can take action to improve it.
+        </h2>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-4">
+      <div class="slide-inner tool-slide">
+        <div class="section-heading">
+          <p class="eyebrow">Tool</p>
+          <h2>Interactive review tool</h2>
+          <p class="body-text narrow">
+            This tool translates universal design into practical exhibit review questions focused on access, clarity, effort, communication, and use.
+          </p>
+        </div>
+        <div class="tool-frame">
+          <iframe src="ud-tool.pdf" title="UD Tool PDF"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-5">
+      <div class="slide-inner findings-slide">
+        <div class="section-heading">
+          <p class="eyebrow">Findings</p>
+          <h2>Patterns across reviewed exhibits</h2>
+          <p class="body-text narrow">
+            The review showed strengths in flexible play and trial-and-error learning, while barriers appeared more often in intuitive use, physical effort, and consistent access.
+          </p>
+        </div>
+
+        <div class="findings-layout">
+          <div class="findings-table-card">
+            <div class="findings-table">
+              <div class="table-head">UD Principle</div>
+              <div class="table-head">Build It</div>
+              <div class="table-head">Gear Wall</div>
+              <div class="table-head">Tree House</div>
+              <div class="table-head">What If</div>
+
+              <div class="table-label">Equitable Use</div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot orange"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+
+              <div class="table-label">Flexibility in Use</div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot green"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+
+              <div class="table-label">Simple &amp; Intuitive</div>
+              <div class="dot-cell"><span class="dot red"></span></div>
+              <div class="dot-cell"><span class="dot red"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot red"></span></div>
+
+              <div class="table-label">Perceptible Information</div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot green"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+
+              <div class="table-label">Tolerance for Error</div>
+              <div class="dot-cell"><span class="dot green"></span></div>
+              <div class="dot-cell"><span class="dot green"></span></div>
+              <div class="dot-cell"><span class="dot green"></span></div>
+              <div class="dot-cell"><span class="dot green"></span></div>
+
+              <div class="table-label">Low Physical Effort</div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot red"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+
+              <div class="table-label">Size &amp; Space for Approach</div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot yellow"></span></div>
+              <div class="dot-cell"><span class="dot red"></span></div>
+            </div>
+
+            <div class="legend">
+              <div><span class="dot green"></span> Strong</div>
+              <div><span class="dot yellow"></span> Moderate</div>
+              <div><span class="dot orange"></span> Low–Moderate</div>
+              <div><span class="dot red"></span> Low</div>
+            </div>
+          </div>
+
+          <div class="theme-cards">
+            <div class="theme-card">
+              <h3>Inconsistent access</h3>
+              <p>Participation conditions varied across exhibits.</p>
+            </div>
+            <div class="theme-card">
+              <h3>Independence shaped by design</h3>
+              <p>Adult help was sometimes needed because of the setup itself.</p>
+            </div>
+            <div class="theme-card">
+              <h3>Communication matters</h3>
+              <p>Exhibits did not always show children how to get started in accessible ways.</p>
+            </div>
+            <div class="theme-card">
+              <h3>Flexibility is already a strength</h3>
+              <p>Open-ended play supported broader participation when paired with better access.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-6">
+      <div class="slide-inner recommendations-slide">
+        <div class="section-heading">
+          <p class="eyebrow">Recommendations</p>
+          <h2>What action can look like</h2>
+          <p class="body-text narrow">
+            These recommendations move from lower-effort changes to longer-term planning opportunities.
+          </p>
+        </div>
+
+        <div class="recommendation-tabs">
+          <button class="tab-btn active" data-tab="tab-1">Immediate</button>
+          <button class="tab-btn" data-tab="tab-2">Planning</button>
+          <button class="tab-btn" data-tab="tab-3">Long Term</button>
+        </div>
+
+        <div class="tab-content active" id="tab-1">
+          <div class="rec-grid">
+            <div class="rec-card"><h3>Add visual entry points</h3><p>Use icons, images, or example setups to show how play can begin without making it rigid.</p></div>
+            <div class="rec-card"><h3>Improve visibility and reach</h3><p>Adjust placement of materials so they are easier to notice and access.</p></div>
+            <div class="rec-card"><h3>Reduce text-only communication</h3><p>Support written directions with visual or sensory cues.</p></div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-2">
+          <div class="rec-grid">
+            <div class="rec-card"><h3>Use the tool for review</h3><p>Support exhibit reflection and identify barriers more consistently.</p></div>
+            <div class="rec-card"><h3>Use findings in updates</h3><p>Apply results to exhibit modifications and layout decisions.</p></div>
+            <div class="rec-card"><h3>Preserve flexible play</h3><p>Keep open-ended engagement while improving access and clarity.</p></div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="tab-3">
+          <div class="rec-grid">
+            <div class="rec-card"><h3>Integrate UD into future design</h3><p>Use these questions earlier in exhibit planning and development.</p></div>
+            <div class="rec-card"><h3>Support funding and grants</h3><p>Design and access goals can strengthen future funding conversations.</p></div>
+            <div class="rec-card"><h3>Expand multimodal supports</h3><p>Consider additional sensory, audio, or preparatory supports over time.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-7">
+      <div class="slide-inner selection-slide">
+        <div class="section-heading">
+          <p class="eyebrow">Exhibit Selection</p>
+          <h2>Visitor and staff input informed what was reviewed</h2>
+          <p class="body-text narrow">
+            Visitors and staff were surveyed to help identify exhibits that were enjoyed, underused, or viewed as needing change. This informed exhibit selection for review.
+          </p>
+        </div>
+
+        <div class="chart-grid">
+          <div class="chart-card">
+            <img src="role-distribution-chart.png" alt="Respondent role distribution chart">
+          </div>
+          <div class="chart-card">
+            <img src="enjoyed-chart.png" alt="Museum areas identified as enjoyed chart">
+          </div>
+          <div class="chart-card wide">
+            <img src="underused-chart.png" alt="Museum areas identified as underused or needing change chart">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="slide-8">
+      <div class="slide-inner market-slide">
+        <div class="section-heading">
+          <p class="eyebrow">Impact</p>
+          <h2>Why this matters for the museum</h2>
+        </div>
+
+        <div class="impact-grid">
+          <div class="impact-card">
+            <h3>Stronger visitor experience</h3>
+            <p>Children are more likely to initiate play, stay engaged longer, and participate more independently.</p>
+          </div>
+          <div class="impact-card">
+            <h3>More intentional decisions</h3>
+            <p>The tool gives the museum a practical way to reflect on exhibit usability and future changes.</p>
+          </div>
+          <div class="impact-card">
+            <h3>Increased marketability</h3>
+            <p>Taking visible steps toward universal design can strengthen how the museum communicates accessibility and inclusion.</p>
+          </div>
+        </div>
+
+        <div class="closing-statement">
+          <h2>Intentional design can increase participation, independence, and engagement.</h2>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="principlesModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" data-close-modal>&times;</button>
+      <p class="eyebrow small">The Framework</p>
+      <h3>The Seven Principles of Universal Design</h3>
+      <ul class="principles-list">
+        <li>Equitable Use</li>
+        <li>Flexibility in Use</li>
+        <li>Simple and Intuitive Use</li>
+        <li>Perceptible Information</li>
+        <li>Tolerance for Error</li>
+        <li>Low Physical Effort</li>
+        <li>Size and Space for Approach and Use</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
