@@ -1,4 +1,5 @@
 const slides = document.querySelectorAll('.slide');
+const slideScrolls = document.querySelectorAll('.slide-scroll');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const currentSlideEl = document.getElementById('currentSlide');
@@ -11,6 +12,13 @@ function showSlide(index) {
   slides.forEach((slide, i) => {
     slide.classList.toggle('active', i === index);
   });
+
+  slideScrolls.forEach((scrollEl, i) => {
+    if (i === index) {
+      scrollEl.scrollTop = 0;
+    }
+  });
+
   currentSlideEl.textContent = index + 1;
   currentSlide = index;
 }
@@ -27,17 +35,45 @@ function prevSlide() {
   }
 }
 
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
+if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+if (prevBtn) prevBtn.addEventListener('click', prevSlide);
 
 document.addEventListener('keydown', (e) => {
-  if (document.querySelector('.modal.open')) {
+  const openModal = document.querySelector('.modal.open');
+  if (openModal) {
     if (e.key === 'Escape') closeModal();
     return;
   }
 
-  if (e.key === 'ArrowRight' || e.key === 'PageDown') nextSlide();
-  if (e.key === 'ArrowLeft' || e.key === 'PageUp') prevSlide();
+  const activeScroll = slides[currentSlide]?.querySelector('.slide-scroll');
+  if (!activeScroll) return;
+
+  const atTop = activeScroll.scrollTop <= 2;
+  const atBottom = activeScroll.scrollTop + activeScroll.clientHeight >= activeScroll.scrollHeight - 2;
+
+  if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+    nextSlide();
+  }
+
+  if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+    prevSlide();
+  }
+
+  if (e.key === 'ArrowDown') {
+    if (!atBottom) {
+      activeScroll.scrollBy({ top: 120, behavior: 'smooth' });
+    } else {
+      nextSlide();
+    }
+  }
+
+  if (e.key === 'ArrowUp') {
+    if (!atTop) {
+      activeScroll.scrollBy({ top: -120, behavior: 'smooth' });
+    } else {
+      prevSlide();
+    }
+  }
 });
 
 const modalTriggers = document.querySelectorAll('[data-open-modal]');
@@ -55,9 +91,11 @@ closeTriggers.forEach(btn => {
   btn.addEventListener('click', closeModal);
 });
 
-principlesModal.addEventListener('click', (e) => {
-  if (e.target === principlesModal) closeModal();
-});
+if (principlesModal) {
+  principlesModal.addEventListener('click', (e) => {
+    if (e.target === principlesModal) closeModal();
+  });
+}
 
 function closeModal() {
   document.querySelectorAll('.modal').forEach(modal => modal.classList.remove('open'));
@@ -72,7 +110,8 @@ tabButtons.forEach(button => {
     tabContents.forEach(content => content.classList.remove('active'));
 
     button.classList.add('active');
-    document.getElementById(button.dataset.tab).classList.add('active');
+    const target = document.getElementById(button.dataset.tab);
+    if (target) target.classList.add('active');
   });
 });
 
