@@ -21,14 +21,15 @@ function showSlide(index) {
 
   currentSlideEl.textContent = index + 1;
   currentSlide = index;
-  if (prevBtn) {
-  prevBtn.style.display = index === 0 ? 'none' : 'block';
-}
 
-if (nextBtn) {
-  nextBtn.style.display = index === slides.length - 1 ? 'none' : 'block';
-}
-}
+  // Hide/show arrows
+  if (prevBtn) {
+    prevBtn.style.display = index === 0 ? 'none' : 'block';
+  }
+
+  if (nextBtn) {
+    nextBtn.style.display = index === slides.length - 1 ? 'none' : 'block';
+  }
 }
 
 function nextSlide() {
